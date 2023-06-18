@@ -1,0 +1,15 @@
+# Active ou désactive l'exécution du moteur de réécriture
+RewriteEngine on
+
+#  lorsque le client envoie une requête, l'index.php sera le fichier à appeler
+DirectoryIndex index.php
+
+# Définit l'URL de base pour les réécritures au niveau répertoire
+RewriteBase /
+
+# Définit une condition qui devra être satisfaite pour que la réécriture soit effectuée
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Définit les règles pour le moteur de réécriture
+RewriteRule ^(.*)$ index.php[L]
